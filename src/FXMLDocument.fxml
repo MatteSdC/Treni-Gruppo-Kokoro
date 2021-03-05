@@ -3,18 +3,49 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <BarChart fx:id="barChart" layoutX="104.0" layoutY="37.0" prefHeight="327.0" prefWidth="393.0">
-        <xAxis>
-          <CategoryAxis fx:id="asseX" label="Passeggeri" side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis fx:id="asseY" label="Treni" side="LEFT" />
-        </yAxis>
-      </BarChart>
-   </children>
-</Pane>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1">
+  <tabs>
+    <Tab fx:id="tabTreno" text="Train">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BarChart fx:id="barChart" layoutX="207.0" layoutY="30.0" prefHeight="295.0" prefWidth="379.0">
+                    <xAxis>
+                      <CategoryAxis fx:id="axisPassenger" label="Passenger" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="axisTrain" label="Train" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <Label fx:id="lblScelta" layoutX="14.0" layoutY="30.0" prefHeight="22.0" prefWidth="104.0" text="Choose category:" />
+                  <CheckBox fx:id="cbBlu" layoutX="14.0" layoutY="52.0" mnemonicParsing="false" text="Blue" />
+                  <CheckBox fx:id="cbGreen" layoutX="14.0" layoutY="80.0" mnemonicParsing="false" text="Green" />
+                  <CheckBox fx:id="cbRed" layoutX="14.0" layoutY="107.0" mnemonicParsing="false" text="Red" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="tabPasseggero" text="Passenger">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ProgressBar fx:id="pbTrainA" layoutX="52.0" layoutY="300.0" prefHeight="35.0" prefWidth="200.0" progress="0.0" />
+                  <ProgressBar fx:id="pbTrainB" layoutX="340.0" layoutY="300.0" prefHeight="35.0" prefWidth="200.0" progress="0.0" />
+                  <Label fx:id="lblTrainA" layoutX="52.0" layoutY="268.0" prefHeight="18.0" prefWidth="154.0" text="Train A:" />
+                  <Label fx:id="lblTrainB" layoutX="340.0" layoutY="268.0" prefHeight="18.0" prefWidth="154.0" text="Train B:" />
+                  <ListView fx:id="listViewTrain" layoutX="52.0" layoutY="39.0" prefHeight="186.0" prefWidth="200.0" />
+                  <ListView fx:id="listViewPassenger" layoutX="340.0" layoutY="39.0" prefHeight="186.0" prefWidth="200.0" />
+                  <Label fx:id="lblListTrain" layoutX="52.0" layoutY="14.0" prefHeight="18.0" prefWidth="133.0" text="List of train in coming:" />
+                  <Label fx:id="lblListPassenger" layoutX="340.0" layoutY="14.0" prefHeight="18.0" prefWidth="164.0" text="List of passengers in coming:" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
